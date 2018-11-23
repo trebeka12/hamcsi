@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HamcsiAndroid</string>
+    <string name="action_settings">Settings</string>
+    <string name ="resume">Folytatás</string>
+    <string name="play">Új játék</string>
+    <string name="help">Játékszabály</string>
+
+    <string name="howToPlayLabel">JÁTÉKSZABÁLY</string>
+    <string name="howToPlay">A játék egy labirintusban játszódik, amelyben egy kis rózsaszín fejet kell irányítani. A cél az, hogy a pontokat megegye, és elkerülje a gonosz kecskét, amely el akarja kapni Hamcsi-t.
+    </string>
+    <string name="controlsLabel">IRÁNYÍTÁS</string>
+    <string name="controls">Fel: Húzd fel\nLE: Húzd le\nBalra: Húzd balra\nJobbra: Húzd jobbra\n
+        "Szünet: Tartsd lenyomva   "
+    </string>
+    <string name="settingsLabel">Settings</string>
+    <string name="resumeLabel">Folytatás</string>
+</resources>

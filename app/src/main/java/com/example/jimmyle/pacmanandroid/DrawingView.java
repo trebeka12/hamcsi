@@ -78,7 +78,6 @@ public class DrawingView extends SurfaceView implements Runnable, SurfaceHolder.
             if (canvas != null) {
                 canvas.drawColor(Color.BLACK);
                 drawMap(canvas);
-                drawArrowIndicators(canvas);
 
                 updateFrame(System.currentTimeMillis());
 
@@ -281,27 +280,7 @@ public class DrawingView extends SurfaceView implements Runnable, SurfaceHolder.
         }
     }
 
-    private void drawArrowIndicators(Canvas canvas) {
-        switch(nextDirection) {
-            case(0):
-                canvas.drawBitmap(arrowUp[currentArrowFrame],5*blockSize , 20*blockSize, paint);
-                break;
-            case(1):
-                canvas.drawBitmap(arrowRight[currentArrowFrame],5*blockSize , 20*blockSize, paint);
-                break;
-            case(2):
-                canvas.drawBitmap(arrowDown[currentArrowFrame],5*blockSize , 20*blockSize, paint);
-                break;
-            case(3):
-                canvas.drawBitmap(arrowLeft[currentArrowFrame],5*blockSize , 20*blockSize, paint);
-                break;
-            default:
-                break;
-        }
 
-    }
-
-    // Method that draws pacman based on his viewDirection
     public void drawPacman(Canvas canvas) {
         switch (viewDirection) {
             case (0):
@@ -319,7 +298,6 @@ public class DrawingView extends SurfaceView implements Runnable, SurfaceHolder.
         }
     }
 
-    // Method that draws pellets and updates them when eaten
     public void drawPellets(Canvas canvas) {
         float x;
         float y;
@@ -336,8 +314,8 @@ public class DrawingView extends SurfaceView implements Runnable, SurfaceHolder.
 
     // Method to draw map layout
     public void drawMap(Canvas canvas) {
-        paint.setColor(Color.BLUE);
-        paint.setStrokeWidth(2.5f);
+        paint.setColor(Color.YELLOW);
+        paint.setStrokeWidth(3f);
         int x;
         int y;
         for (int i = 0; i < 18; i++) {
@@ -487,70 +465,6 @@ public class DrawingView extends SurfaceView implements Runnable, SurfaceHolder.
         int arrowSize = 7*blockSize;            // Size of arrow indicators
 
         // Add bitmap images of right arrow indicators
-        arrowRight = new Bitmap[7]; // 7 image frames for right direction
-        arrowRight[0] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.right_arrow_frame1), arrowSize, arrowSize, false);
-        arrowRight[1] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.right_arrow_frame2), arrowSize, arrowSize, false);
-        arrowRight[2] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.right_arrow_frame3), arrowSize, arrowSize, false);
-        arrowRight[3] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.right_arrow_frame4), arrowSize, arrowSize, false);
-        arrowRight[4] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.right_arrow_frame5), arrowSize, arrowSize, false);
-        arrowRight[5] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.right_arrow_frame6), arrowSize, arrowSize, false);
-        arrowRight[6] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.right_arrow_frame7), arrowSize, arrowSize, false);
-
-        arrowDown = new Bitmap[7]; // 7 images frames for down direction
-        arrowDown[0] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.down_arrow_frame1), arrowSize, arrowSize, false);
-        arrowDown[1] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.down_arrow_frame2), arrowSize, arrowSize, false);
-        arrowDown[2] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.down_arrow_frame3), arrowSize, arrowSize, false);
-        arrowDown[3] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.down_arrow_frame4), arrowSize, arrowSize, false);
-        arrowDown[4] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.down_arrow_frame5), arrowSize, arrowSize, false);
-        arrowDown[5] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.down_arrow_frame6), arrowSize, arrowSize, false);
-        arrowDown[6] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.down_arrow_frame7), arrowSize, arrowSize, false);
-
-        arrowUp = new Bitmap[7]; // 7 frames for each direction
-        arrowUp[0] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.up_arrow_frame1), arrowSize, arrowSize, false);
-        arrowUp[1] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.up_arrow_frame2), arrowSize, arrowSize, false);
-        arrowUp[2] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.up_arrow_frame3), arrowSize, arrowSize, false);
-        arrowUp[3] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.up_arrow_frame4), arrowSize, arrowSize, false);
-        arrowUp[4] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.up_arrow_frame5), arrowSize, arrowSize, false);
-        arrowUp[5] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.up_arrow_frame6), arrowSize, arrowSize, false);
-        arrowUp[6] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.up_arrow_frame7), arrowSize, arrowSize, false);
-
-        arrowLeft = new Bitmap[7]; // 7 images frames for left direction
-        arrowLeft[0] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.left_arrow_frame1), arrowSize, arrowSize, false);
-        arrowLeft[1] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.left_arrow_frame2), arrowSize, arrowSize, false);
-        arrowLeft[2] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.left_arrow_frame3), arrowSize, arrowSize, false);
-        arrowLeft[3] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.left_arrow_frame4), arrowSize, arrowSize, false);
-        arrowLeft[4] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.left_arrow_frame5), arrowSize, arrowSize, false);
-        arrowLeft[5] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.left_arrow_frame6), arrowSize, arrowSize, false);
-        arrowLeft[6] = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(
-                getResources(), R.drawable.left_arrow_frame7), arrowSize, arrowSize, false);
-
 
 
         // Add bitmap images of pacman facing right

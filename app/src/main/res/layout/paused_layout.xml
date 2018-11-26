@@ -26,12 +26,12 @@
         android:layout_alignBottom="@+id/MainMenuImage"
         android:layout_marginBottom="75dp"
         android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp">
+        android:layout_marginLeft="28dp">
 
         <Button
             android:layout_width="175dp"
             android:layout_height="65dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginBottom="5dp"
             android:background="@color/colorAccent"
             android:onClick="resumeGame"
@@ -41,7 +41,7 @@
         <Button
             android:layout_width="175dp"
             android:layout_height="65dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="70dp"
             android:layout_marginBottom="5dp"
             android:background="@color/colorAccent"
             android:onClick="showPlayScreen"
@@ -52,12 +52,11 @@
         <Button
             android:layout_width="175dp"
             android:layout_height="65dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="70dp"
             android:background="@color/colorAccent"
             android:onClick="showHelpScreen"
             android:text="@string/help"
             android:textSize="20dp" />
-
     </LinearLayout>
 
 </RelativeLayout>
